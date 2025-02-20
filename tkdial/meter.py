@@ -25,6 +25,7 @@ class Meter(tk.Canvas):
                  axis_color: str = "grey80",
                  bg: str = None,
                  fg: str = "white",
+                 interactive : bool = True,
                  scroll: bool = True,
                  scroll_steps: float = 1,
                  scale_color: str = "black",
@@ -35,6 +36,7 @@ class Meter(tk.Canvas):
         
         self.bg = bg
         self.fg = fg
+        self.interactive = interactive
         self.major_div = major_divisions
         self.min_div = minor_divisions
         self.radius = radius  
@@ -94,7 +96,7 @@ class Meter(tk.Canvas):
         self.create_divisions()
         self.create_needle()
         
-        if self.scroll==True:
+        if self.interactive==True and self.scroll==True:
             super().bind('<MouseWheel>', self.scroll_command)
             super().bind("<Button-4>", lambda e: self.scroll_command(-1))
             super().bind("<Button-5>", lambda e: self.scroll_command(1))

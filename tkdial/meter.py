@@ -151,7 +151,10 @@ class Meter(tk.Canvas):
         angles = (self.start_angle + n * self.end_angle * self.major_div / self.absolute for n in range(lines))
         textvals = (self.start + n * self.major_div * self.direction for n in range(lines))
         textpos = self.arc_pos / 2.5
-        self.scalefont = tkFont.Font(size=int(self.arc_pos / 5), weight='bold')
+
+        # self.scalefont = tkFont.Font(size=int(self.arc_pos / 5), weight='bold')
+        self.scalefont = self.text_font
+        
         for angle, textval in zip(angles, textvals):
             x1 = self.xn + (self.radians - self.arc_pos) * math.cos(math.radians(angle))
             y1 = self.yn - (self.radians - self.arc_pos) * math.sin(math.radians(angle))

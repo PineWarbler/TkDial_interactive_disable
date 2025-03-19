@@ -12,4 +12,4 @@ from .tkdial import Dial
 from .scrollknob import ScrollKnob
 from .meter import Meter
 from .jogwheel import Jogwheel
-from .imageknob import ImageKnob
+# from .imageknob import ImageKnob
